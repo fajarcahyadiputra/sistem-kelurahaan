@@ -21,6 +21,13 @@
 			</div>
 
 			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Panjang Bayi *<small class="text-info">CM</small></label>
+				<div class="col-sm-3">
+					<input type="number" class="form-control" id="panjang_bayi" name="panjang_bayi" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Jenis Kelain</label>
 				<div class="col-sm-3">
 					<select name="jekel" id="jekel" class="form-control">
@@ -66,11 +73,13 @@
 
     if (isset ($_POST['Simpan'])){
     //mulai proses simpan data
-        $sql_simpan = "INSERT INTO tb_lahir (nama, tgl_lh, jekel, id_kk) VALUES (
+        $sql_simpan = "INSERT INTO tb_lahir (nama, tgl_lh, jekel, id_kk, panjang_bayi) VALUES (
             '".$_POST['nama']."',
 			'".$_POST['tgl_lh']."',
             '".$_POST['jekel']."',
-            '".$_POST['id_kk']."')";
+            '".$_POST['id_kk']."',
+            '".$_POST['panjang_bayi']."'
+			)";
         $query_simpan = mysqli_query($koneksi, $sql_simpan);
         mysqli_close($koneksi);
 

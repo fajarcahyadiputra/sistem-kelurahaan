@@ -11,6 +11,7 @@
 					<i class="fa fa-edit"></i> Tambah Data</a>
 			</div>
 			<br>
+			<div class="table-responsive">
 			<table id="example1" class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -19,6 +20,7 @@
 						<th>Tgl Lahir</th>
 						<th>Jekel</th>
 						<th>Keluarga</th>
+						<th>Panjang Bayi</th>
 						<th>Aksi</th>
 					</tr>
 				</thead>
@@ -26,7 +28,7 @@
 
 					<?php
               $no = 1;
-			  $sql = $koneksi->query("SELECT l.id_lahir, l.nama, l.tgl_lh, l.jekel, k.no_kk, k.kepala from 
+			  $sql = $koneksi->query("SELECT l.id_lahir, l.nama, l.tgl_lh,l.panjang_bayi, l.jekel, k.no_kk, k.kepala from 
 			  tb_lahir l inner join tb_kk k on k.id_kk=l.id_kk");
               while ($data= $sql->fetch_assoc()) {
             ?>
@@ -49,6 +51,9 @@
 							<?php echo $data['kepala']; ?>
 						</td>
 						<td>
+							<?php echo $data['panjang_bayi']; ?>
+						</td>
+						<td>
 							<a href="?page=edit-lahir&kode=<?php echo $data['id_lahir']; ?>" title="Ubah"
 							 class="btn btn-success btn-sm">
 								<i class="fa fa-edit"></i>
@@ -66,6 +71,7 @@
 				</tbody>
 				</tfoot>
 			</table>
+			</div>
 		</div>
 	</div>
 	<!-- /.card-body -->

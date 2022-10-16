@@ -44,6 +44,20 @@
 				</div>
 			</div>
 
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Status</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="status" name="status" placeholder="Status" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Tempat Tujuan</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="tempat_tujuan" name="tempat_tujuan" placeholder="Tempat Tujuan" required>
+				</div>
+			</div>
+
 		</div>
 		<div class="card-footer">
 			<input type="submit" name="Simpan" value="Simpan" class="btn btn-info">
@@ -56,10 +70,13 @@
 
     if (isset ($_POST['Simpan'])){
     //mulai proses simpan data
-        $sql_simpan = "INSERT INTO tb_pindah (id_pdd, tgl_pindah, alasan) VALUES (
+        $sql_simpan = "INSERT INTO tb_pindah (id_pdd, tgl_pindah, alasan, status, tempat_tujuan) VALUES (
 			'".$_POST['id_pdd']."',
             '".$_POST['tgl_pindah']."',
-            '".$_POST['alasan']."')";
+            '".$_POST['alasan']."',
+            '".$_POST['status']."',
+            '".$_POST['tempat_tujuan']."'
+			)";
 		$query_simpan = mysqli_query($koneksi, $sql_simpan);
 		
 		$sql_ubah = "UPDATE tb_pdd SET 

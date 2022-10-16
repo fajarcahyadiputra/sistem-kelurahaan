@@ -13,14 +13,15 @@
 						<option selected="selected">- Pilih Data -</option>
 						<?php
 				// ambil data dari database
-				$query = "select * from tb_datang";
+				$query = "SELECT d.id_datang,  a.nik, a.nama as nama_pendatang, a.kewarganegaraan, a.tempat_lh, a.agama, a.pekerjaan, a.tgl_lh, a.jekel, a.desa, a.rt, a.rw, d.tgl_datang, d.dari, p.nama from 
+				tb_datang d inner join tb_pdd p on d.pelapor=p.id_pend inner join tb_pdd a on a.id_pend=d.id_pdd";
 				$hasil = mysqli_query($koneksi, $query);
 				while ($row = mysqli_fetch_array($hasil)) {
 				?>
 						<option value="<?php echo $row['id_datang'] ?>">
 							<?php echo $row['nik'] ?>
 							-
-							<?php echo $row['nama_datang'] ?>
+							<?php echo $row['nama_pendatang'] ?>
 						</option>
 						<?php
 				}

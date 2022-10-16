@@ -19,6 +19,8 @@
 						<th>Nama</th>
 						<th>Tanggal</th>
 						<th>Alasan</th>
+						<th>Status</th>
+						<th>Tujuan</th>
 						<th>Aksi</th>
 					</tr>
 				</thead>
@@ -26,7 +28,7 @@
 
 					<?php
               $no = 1;
-			  $sql = $koneksi->query("SELECT p.id_pend, p.nik, p.nama, d.tgl_pindah, d.alasan, d.id_pindah from 
+			  $sql = $koneksi->query("SELECT p.id_pend, p.nik, p.nama, d.status, d.tempat_tujuan, d.tgl_pindah, d.alasan, d.id_pindah from 
 			  tb_pindah d inner join tb_pdd p on p.id_pend=d.id_pdd");
               while ($data= $sql->fetch_assoc()) {
             ?>
@@ -46,6 +48,12 @@
 						</td>
 						<td>
 							<?php echo $data['alasan']; ?>
+						</td>
+						<td>
+							<?php echo $data['status']; ?>
+						</td>
+						<td>
+							<?php echo $data['tempat_tujuan']; ?>
 						</td>
 						<td>
 							<a href="?page=edit-pindah&kode=<?php echo $data['id_pindah']; ?>" title="Ubah"

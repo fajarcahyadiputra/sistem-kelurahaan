@@ -1,7 +1,7 @@
 <?php
 
     if(isset($_GET['kode'])){
-        $sql_cek = "SELECT p.nama, d.id_pindah, d.tgl_pindah, d.alasan FROM 
+        $sql_cek = "SELECT p.nama, d.id_pindah, d.tempat_tujuan, d.status, d.tgl_pindah, d.alasan FROM 
 		tb_pindah d join tb_pdd p on d.id_pdd=p.id_pend WHERE id_pindah='".$_GET['kode']."'";
         $query_cek = mysqli_query($koneksi, $sql_cek);
         $data_cek = mysqli_fetch_array($query_cek,MYSQLI_BOTH);
@@ -48,6 +48,22 @@
 				</div>
 			</div>
 
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Status</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="status" name="status" placeholder="Status" value="<?php echo $data_cek['status']; ?>" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Tempat Tujuan</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control" id="tempat_tujuan" name="tempat_tujuan" value="<?php echo $data_cek['tempat_tujuan']; ?>" placeholder="Tempat Tujuan" required>
+				</div>
+			</div>
+
+			
+
 		</div>
 		<div class="card-footer">
 			<input type="submit" name="Ubah" value="Simpan" class="btn btn-success">
@@ -61,7 +77,9 @@
     if (isset ($_POST['Ubah'])){
     $sql_ubah = "UPDATE tb_pindah SET 
 		tgl_pindah='".$_POST['tgl_pindah']."',
-		alasan='".$_POST['alasan']."'
+		alasan='".$_POST['alasan']."',
+		status='".$_POST['status']."',
+		tempat_tujuan='".$_POST['tempat_tujuan']."'
 		WHERE id_pindah='".$_POST['id_pindah']."'";
     $query_ubah = mysqli_query($koneksi, $sql_ubah);
     mysqli_close($koneksi);

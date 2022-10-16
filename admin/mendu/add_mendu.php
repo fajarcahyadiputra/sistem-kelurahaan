@@ -36,7 +36,12 @@
 					<input type="date" class="form-control" id="tgl_mendu" name="tgl_mendu" required>
 				</div>
 			</div>
-
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Jam</label>
+				<div class="col-sm-6">
+					<input type="time" class="form-control" id="jam" name="jam" placeholder="Jam" required>
+				</div>
+			</div>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Sebab</label>
 				<div class="col-sm-6">
@@ -56,10 +61,12 @@
 
     if (isset ($_POST['Simpan'])){
     //mulai proses simpan data
-        $sql_simpan = "INSERT INTO tb_mendu (id_pdd, tgl_mendu, sebab) VALUES (
+        $sql_simpan = "INSERT INTO tb_mendu (id_pdd, tgl_mendu, sebab, jam) VALUES (
 			'".$_POST['id_pdd']."',
             '".$_POST['tgl_mendu']."',
-            '".$_POST['sebab']."')";
+            '".$_POST['sebab']."',
+            '".$_POST['jam']."'
+			)";
 		$query_simpan = mysqli_query($koneksi, $sql_simpan);
 		
 		$sql_ubah = "UPDATE tb_pdd SET 

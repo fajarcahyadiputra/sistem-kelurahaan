@@ -11,6 +11,7 @@
 					<i class="fa fa-edit"></i> Tambah Data</a>
 			</div>
 			<br>
+			<div class="table-responsive">
 			<table id="example1" class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -87,6 +88,7 @@
 				</tbody>
 				</tfoot>
 			</table>
+			</div>
 		</div>
 	</div>
 	<!-- /.card-body -->

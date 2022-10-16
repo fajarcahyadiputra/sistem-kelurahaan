@@ -20,7 +20,12 @@
 <body>
 	<center>
 	<img width="80" src="../dist/img/logo.jpg" alt="logo" align="left">
-		<h2>PEMERINTAHAN KELURAHAN TELAGA ASIH</h2>
+	<h2>PEMERINTAH KABUPATEN TELAGA ASIH</h2>
+		<div style="line-height: 5px; text-align: center; margin-left: 0; width: 300px;">
+			<p>KECAMATAN CIKARANG BARAT</p>
+			<p>KELURAHAN TELAGA ASIH</p>
+			<p>jl.Raya Telaga Asih No.15 Kode pos 17520</p>
+		</div>
 		<p>________________________________________________________________________</p>
 
 		<?php
@@ -46,8 +51,7 @@
 			<?php echo $tanggal; ?>
 		</h4>
 	</center>
-	<p>Yang bertandatangan dibawah ini Kepala Kelurahan Telaga Asih, dengan ini menerangkan
-		bahwa :</P>
+	<p>Yang bertanda tangan dibawah ini lurah telaga asih kecamatan cikarang barat kabupaten bekasi dengan ini menerangkan bahwa :</p>
 	<table>
 		<tbody>
 			<tr>
@@ -71,10 +75,18 @@
 					<?php echo $data['tgl_lh']; ?>
 				</td>
 			</tr>
+			<tr>
+				<td>Panjang Bayi</td>
+				<td>:</td>
+				<td>
+					<?php echo $data['panjang_bayi']; ?>
+				</td>
+			</tr>
 		</tbody>
 	</table>
-	<p>Telah benar-benar Lahir di Kelurahan Telaga Asih.</P>
-	<p>Demikian Surat ini dibuat, agar dapat digunakan sebagaimana mestinya.</P
+	<p>Surat keterangan ini sebagai persyaratan untuk mengurus akta kelahiran pada dinas kependudukan dan pencatatan sipil kabupaten bekasi.</p>
+ <p>Demikian surat keterangan ini diberikan untuk dapat digunakan sebagai mestinya.</p>
+
 	<br>
 	<br>
 	<br>
@@ -83,7 +95,7 @@
 	<p align="right">
 		Bekasi,
 		<?php echo $tgl; ?>
-		<br> KEPALA KELURAHAN TELAGA ASIH
+		<br> A.N Lurah Telaga Asih
 		<br>
 		<br>
 		<br>

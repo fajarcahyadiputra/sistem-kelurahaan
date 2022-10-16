@@ -20,7 +20,12 @@
 <body>
 	<center>
 	<img width="80" src="../dist/img/logo.jpg" alt="logo" align="left">
-		<h2>PEMERINTAHAN KELURAHAN TELAGA ASIH</h2>
+	<h2>PEMERINTAH KABUPATEN TELAGA ASIH</h2>
+		<div style="line-height: 5px; text-align: center; margin-left: 0; width: 300px;">
+			<p>KECAMATAN CIKARANG BARAT</p>
+			<p>KELURAHAN TELAGA ASIH</p>
+			<p>jl.Raya Telaga Asih No.15 Kode pos 17520</p>
+		</div>
 		<p>________________________________________________________________________</p>
 
 		<?php
@@ -36,6 +41,9 @@
 			$query_lurah = mysqli_query($koneksi, $sql_pengguna);
 			$no=1;
 			$data_peng = mysqli_fetch_array($query_lurah);
+
+			$dateNow  = date('Y-m-d');
+			$dateAfter = date('Y-m-d', strtotime($dateNow. ' + 3 months'));
 		?>
 	</center>
 
@@ -48,8 +56,7 @@
 			<?php echo $tanggal; ?>
 		</h4>
 	</center>
-	<p>Yang bertandatangan dibawah ini Kepala Kelurahan Telaga Asih, dengan ini menerangkan
-		bahwa :</P>
+	<p>Yang bertanda tangan dibawah ini lurah telaga asih kecamatan cikarang barat kabupaten bekasi dengan ini menerangkan bahwa :</p>
 	<table>
 		<tbody>
 			<tr>
@@ -111,8 +118,9 @@
 			</tr>
 		</tbody>
 	</table>
-	<p>Telah benar-benar Pindah dari Kelurahan Telaga Asih.</P>
-	<p>Demikian Surat ini dibuat, agar dapat digunakan sebagai mana mestinya.</P>
+	<p>Berdasarkan surat pengantar rt/rw setempat bahwa benar nama tersebut diatas telah melapor dan tercatat sebagai domisili penduduk tetap di kelurahan telaga asih dan Surat keterangan ini digunakan untuk persyaratan administrasi dan Surat keterangan ini berlaku selama 3 (tiga) bulan terhitung mulai:</p>
+<p style="font-weight: bold ;">Tanggal : <?php echo $dateNow ?> 		s/d tanggal: <?php echo $dateAfter ?> </p>
+<p>Demikian surat keterangan kepindahan penduduk ini kami buat dan agar dapat digunakan sebagai mestinya.</p>
 	<br>
 	<br>
 	<br>
@@ -132,7 +140,7 @@
 	<p align="right" style="text-align: center">
 		Bekasi,
 		<?php echo $tgl; ?>
-		<br> KEPALA KELURAHAN TELAGA ASIH
+		<br> A.N Lurah Telaga Asih
 		<br>
 		<br>
 		<br>

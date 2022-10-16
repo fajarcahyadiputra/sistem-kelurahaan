@@ -1,7 +1,7 @@
 <?php
 
     if(isset($_GET['kode'])){
-        $sql_cek = "SELECT d.id_datang, d.nik, d.nama_datang, d.jekel, d.tgl_datang, p.id_pend, p.nama from 
+        $sql_cek = "SELECT d.id_datang, d.tgl_datang, d.dari, p.id_pend, p.nama from 
 		tb_datang d inner join tb_pdd p on d.pelapor=p.id_pend WHERE id_datang='".$_GET['kode']."'";
         $query_cek = mysqli_query($koneksi, $sql_cek);
         $data_cek = mysqli_fetch_array($query_cek,MYSQLI_BOTH);
@@ -24,36 +24,11 @@
 				</div>
 			</div>
 
+
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">NIK</label>
+				<label class="col-sm-2 col-form-label">Pendatang Dari</label>
 				<div class="col-sm-6">
-					<input type="text" class="form-control" id="nik" name="nik" value="<?php echo $data_cek['nik']; ?>"
-					 required>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Nama</label>
-				<div class="col-sm-6">
-					<input type="text" class="form-control" id="nama_datang" name="nama_datang" value="<?php echo $data_cek['nama_datang']; ?>"
-					 required>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Jenis Kelamin</label>
-				<div class="col-sm-3">
-					<select name="jekel" id="jekel" class="form-control">
-						<option value="">-- Pilih jekel --</option>
-						<?php
-                //menhecek data yg dipilih sebelumnya
-                if ($data_cek['jekel'] == "LK") echo "<option value='LK' selected>LK</option>";
-                else echo "<option value='LK'>LK</option>";
-
-                if ($data_cek['jekel'] == "PR") echo "<option value='PR' selected>PR</option>";
-                else echo "<option value='PR'>PR</option>";
-            ?>
-					</select>
+					<input type="text" class="form-control" id="dari" name="dari" value="<?php echo $data_cek['dari']; ?>" required>
 				</div>
 			</div>
 
@@ -90,6 +65,8 @@
 			</div>
 
 
+
+
 		</div>
 		<div class="card-footer">
 			<input type="submit" name="Ubah" value="Simpan" class="btn btn-success">
@@ -102,11 +79,9 @@
 
     if (isset ($_POST['Ubah'])){
     $sql_ubah = "UPDATE tb_datang SET 
-		nik='".$_POST['nik']."',
-		nama_datang='".$_POST['nama_datang']."',
-		jekel='".$_POST['jekel']."',
 		tgl_datang='".$_POST['tgl_datang']."',
-		pelapor='".$_POST['pelapor']."'
+		pelapor='".$_POST['pelapor']."',
+		dari='".$_POST['dari']."'
 		WHERE id_datang='".$_POST['id_datang']."'";
     $query_ubah = mysqli_query($koneksi, $sql_ubah);
     mysqli_close($koneksi);

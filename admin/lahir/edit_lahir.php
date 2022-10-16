@@ -32,6 +32,13 @@
 			</div>
 
 			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Panjang Bayi *<small class="text-info">CM</small></label>
+				<div class="col-sm-3">
+					<input type="number" class="form-control" id="panjang_bayi" name="panjang_bayi" value="<?php echo $data_cek['panjang_bayi']; ?>" required>
+				</div>
+			</div>
+
+			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Tgl Lahir</label>
 				<div class="col-sm-3">
 					<input type="date" class="form-control" id="tgl_lh" name="tgl_lh" value="<?php echo $data_cek['tgl_lh']; ?>"
@@ -96,7 +103,8 @@
 		nama='".$_POST['nama']."',
 		tgl_lh='".$_POST['tgl_lh']."',
 		jekel='".$_POST['jekel']."',
-		id_kk='".$_POST['id_kk']."'
+		id_kk='".$_POST['id_kk']."',
+		panjang_bayi='".$_POST['panjang_bayi']."'
 		WHERE id_lahir='".$_POST['id_lahir']."'";
     $query_ubah = mysqli_query($koneksi, $sql_ubah);
     mysqli_close($koneksi);

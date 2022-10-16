@@ -20,11 +20,16 @@
 <body>
 	<center>
 	<img width="80" src="../dist/img/logo.jpg" alt="logo" align="left">
-		<h2>PEMERINTAHAN KELURAHAN TELAGA ASIH</h2>
+	<h2>PEMERINTAH KABUPATEN TELAGA ASIH</h2>
+		<div style="line-height: 5px; text-align: center; margin-left: 0; width: 300px;">
+			<p>KECAMATAN CIKARANG BARAT</p>
+			<p>KELURAHAN TELAGA ASIH</p>
+			<p>jl.Raya Telaga Asih No.15 Kode pos 17520</p>
+		</div>
 		<p>________________________________________________________________________</p>
 
 		<?php
-			$sql_tampil = "select m.id_mendu, m.tgl_mendu, m.sebab, p.nik, p.nama from tb_mendu m inner join tb_pdd p on 
+			$sql_tampil = "select m.id_mendu, m.jam, m.tgl_mendu, m.sebab, p.nik, p.nama from tb_mendu m inner join tb_pdd p on 
 			m.id_pdd=p.id_pend
 			where id_mendu ='$id'";
 			
@@ -49,8 +54,7 @@
 			<?php echo $tanggal; ?>
 		</h4>
 	</center>
-	<p>Yang bertandatangan dibawah ini Kepala Kelurahan Telaga Asih, dengan ini menerangkan
-		bahwa :</P>
+	<p>Yang bertanda tangan dibawah ini lurah telaga asih kecamatan cikarang barat kabupaten bekasi dengan ini menerangkan bahwa :</p>
 	<table>
 		<tbody>
 			<tr>
@@ -75,17 +79,23 @@
 				</td>
 			</tr>
 			<tr>
+				<td>Jam</td>
+				<td>:</td>
+				<td>
+					<?php echo $data['jam']; ?>
+				</td>
+			</tr>
+			<tr>
 				<td>Sebab</td>
 				<td>:</td>
 				<td>
 					<?php echo $data['sebab']; ?>
 				</td>
 			</tr>
+
 		</tbody>
 	</table>
-	<p>Benar-benar telah
-		<b>Meninggal Dunia</b>, pada waktu yang telah disebutkan diatas.</P>
-	<p>Demikian Surat ini dibuat, agar dapat digunakan sebagaimana mestinya.</P>
+	<p>Demikian surat kematian ini dibuat dengan sebenarnya agar dapat dipergunakan sebagai mestinya.</P>
 	<br>
 	<br>
 	<br>
@@ -94,7 +104,7 @@
 	<p align="right" >
 		Bekasi,
 		<?php echo $tgl; ?>
-		<br> KEPALA KELURAHAN TELAGA ASIH
+		<br>A.N Lurah Telaga Asih
 		<br>
 		<br>
 		<br>
